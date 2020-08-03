@@ -1,0 +1,2 @@
+C:\Users\jaxdr\Desktop\Master\SimpleCuffProtection\obj\x64\Debug\SimpleCuffProtectionV1.0.3.csprojAssemblyReference.cache
+C:\Users\jaxdr\Desktop\Master\SimpleCuffProtection\obj\x64\Debug\SimpleCuffProtectionV1.0.3.csproj.CoreCompileInputs.cache
