@@ -29,7 +29,7 @@ namespace SimpleCuffProtection
 				if (attacteam == Team.MTF || attacteam == Team.CHI || attacteam == Team.RSC || attacteam == Team.CDP)
 				{
 					//if (ev.DamageType == DamageTypes.Com15 || ev.DamageType == DamageTypes.E11StandardRifle || ev.DamageType == DamageTypes.Grenade || ev.DamageType == DamageTypes.Logicer || ev.DamageType == DamageTypes.MicroHid || ev.DamageType == DamageTypes.Mp7 || ev.DamageType == DamageTypes.P90 || ev.DamageType == DamageTypes.Usp) {
-					if (targteam == Team.CDP || targteam == Team.RSC) { 
+					
 					if (ev.DamageType.isWeapon && !ev.DamageType.isScp)
 					{
 						if (!sndMessage)
@@ -48,7 +48,7 @@ namespace SimpleCuffProtection
 						ev.Amount = 0;
 					}
 				}
-			}
+			
 			}
 				
 			
