@@ -36,7 +36,7 @@ namespace SimpleCuffProtection
 						{
 
 
-							ev.Attacker.ShowHint("<color=red>You are shooting a handcuffed player!</color>");
+							ev.Attacker.ShowHint(SimpleCuffProtection.WarnMsg,SimpleCuffProtection.WarnDur);
 							sndMessage = true;
 
 						}

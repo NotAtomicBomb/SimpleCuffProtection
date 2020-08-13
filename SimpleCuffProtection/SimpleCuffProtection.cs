@@ -14,7 +14,9 @@ namespace SimpleCuffProtection
 		// (get) Token: 0x06000008 RID: 8 RVA: 0x00002ACD File Offset: 0x00000CCD
 		// (set) Token: 0x06000009 RID: 9 RVA: 0x00002AD4 File Offset: 0x00000CD4
 		internal static SimpleCuffProtection plugin { get; private set; }
-        public override Version Version => Version.Parse("1.0.5");
+        public override Version Version => Version.Parse("1.0.6");
+		internal static string WarnMsg;
+		internal static float WarnDur;
 
         // Token: 0x17000004 RID: 4
         // (get) Token: 0x0600000A RID: 10 RVA: 0x00002ADC File Offset: 0x00000CDC
@@ -40,6 +42,7 @@ namespace SimpleCuffProtection
 		// Token: 0x0600000C RID: 12 RVA: 0x00002B1C File Offset: 0x00000D1C
 		public override void OnEnabled()
 		{
+			OnReloaded();
 			this.enabled = Config.IsEnabled;
 			bool flag = !this.enabled;
 			if (!flag)
@@ -57,6 +60,8 @@ namespace SimpleCuffProtection
 		// Token: 0x0600000D RID: 13 RVA: 0x00002B8F File Offset: 0x00000D8F
 		public override void OnReloaded()
 		{
+			WarnMsg = Config.WarningMessage;
+			WarnDur = Config.WarningMessageDuration;
 		}
 
 		// Token: 0x0400000D RID: 13
