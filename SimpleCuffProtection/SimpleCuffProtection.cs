@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Exiled;
 using Exiled.API;
 using Exiled.API.Features;
@@ -17,10 +17,12 @@ namespace SimpleCuffProtection
         public override Version Version => Version.Parse("1.0.6");
 		internal static string WarnMsg;
 		internal static float WarnDur;
+		internal static bool DisableUncuffing;
 
-        // Token: 0x17000004 RID: 4
-        // (get) Token: 0x0600000A RID: 10 RVA: 0x00002ADC File Offset: 0x00000CDC
-        public override string Name
+
+		// Token: 0x17000004 RID: 4
+		// (get) Token: 0x0600000A RID: 10 RVA: 0x00002ADC File Offset: 0x00000CDC
+		public override string Name
 		{
 			get
 			{
@@ -35,7 +37,10 @@ namespace SimpleCuffProtection
 			if (!flag)
 			{
                 Exiled.Events.Handlers.Player.Hurting -= LocalEvents.OnPlayerHurt;
-
+				Exiled.Events.Handlers.Player.Handcuffing -= LocalEvents.OnHandcuffing;
+				Exiled.Events.Handlers.Player.RemovingHandcuffs -= LocalEvents.OnRemovingHandcuffs;
+				Exiled.Events.Handlers.Player.ChangingItem -= LocalEvents.OnChangingItem;
+				Exiled.Events.Handlers.Player.DroppingItem -= LocalEvents.OnDroppingItem;
 			}
 		}
 
@@ -51,9 +56,10 @@ namespace SimpleCuffProtection
 				Log.Warn("Registering events for SimpleCuffProtection...");
 				LocalEvents = new EventHandlers();
 				Exiled.Events.Handlers.Player.Hurting += LocalEvents.OnPlayerHurt;
-
-
-
+				Exiled.Events.Handlers.Player.Handcuffing += LocalEvents.OnHandcuffing;
+				Exiled.Events.Handlers.Player.RemovingHandcuffs += LocalEvents.OnRemovingHandcuffs;
+				Exiled.Events.Handlers.Player.ChangingItem += LocalEvents.OnChangingItem;
+				Exiled.Events.Handlers.Player.DroppingItem += LocalEvents.OnDroppingItem;
 			}
 		}
 
@@ -62,6 +68,7 @@ namespace SimpleCuffProtection
 		{
 			WarnMsg = Config.WarningMessage;
 			WarnDur = Config.WarningMessageDuration;
+			DisableUncuffing = Config.DisableUncuffing;
 		}
 
 		// Token: 0x0400000D RID: 13
