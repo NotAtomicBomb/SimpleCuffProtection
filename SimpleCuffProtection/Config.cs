@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.ComponentModel;
 using Exiled.API.Interfaces;
 
@@ -13,6 +13,7 @@ namespace SimpleCuffProtection
         public string WarningMessage { get; set; } = "<color=red>You are shooting a handcuffed player!</color>";
         [Description("The amount of seconds the message will be shown.")]
         public float WarningMessageDuration { get; set; } = 3f;
-        
+        [Description("Disallow uncuffing a player except by the person who originally cuffed them ?")]
+        public bool DisableUncuffing { get; set; } = false;
     }
  }
