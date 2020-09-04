@@ -7,7 +7,6 @@ using Exiled.API.Enums;
 
 namespace SimpleCuffProtection
 {
-	// Token: 0x02000004 RID: 4
 	public class SimpleCuffProtection : Plugin<Config>
 	{
 		internal static SimpleCuffProtection plugin { get; private set; }
