@@ -17,9 +17,9 @@ namespace SimpleCuffProtection
         public override Version Version => Version.Parse("1.0.6");
 		internal static string WarnMsg;
 		internal static float WarnDur;
-		internal static bool DisableUncuffing;
-
-
+		internal static bool AllowCufferDamage;
+		internal static bool DisallowUncuffing;
+		
 		// Token: 0x17000004 RID: 4
 		// (get) Token: 0x0600000A RID: 10 RVA: 0x00002ADC File Offset: 0x00000CDC
 		public override string Name
@@ -68,7 +68,8 @@ namespace SimpleCuffProtection
 		{
 			WarnMsg = Config.WarningMessage;
 			WarnDur = Config.WarningMessageDuration;
-			DisableUncuffing = Config.DisableUncuffing;
+			AllowCufferDamage = Config.AllowCufferDamage;
+			DisallowUncuffing = Config.DisallowUncuffing;
 		}
 
 		// Token: 0x0400000D RID: 13
