@@ -2,8 +2,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using Exiled.API.Interfaces;
 
-using UnityEngine;
-
 namespace SimpleCuffProtection
 {
     public sealed class Config : IConfig
