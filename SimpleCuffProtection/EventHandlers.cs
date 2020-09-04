@@ -17,9 +17,8 @@ namespace SimpleCuffProtection
 
 		public void OnPlayerHurt(HurtingEventArgs ev)
 		{
-			if (ev.Target.IsCuffed && ev.DamageType.isWeapon)
+			if (ev.Target.IsCuffed && ev.DamageType.isWeapon && !(SimpleCuffProtection.AllowCufferDamage && Handcuffs.ContainsKey(ev.Attacker) && Handcuffs[ev.Attacker] == ev.Target))
 			{
-				if (SimpleCuffProtection.AllowCufferDamage && Handcuffs.ContainsKey(ev.Attacker) && Handcuffs[ev.Attacker] == ev.Target) return;
 				ev.Amount = 0;
 				ev.Attacker.ShowHint(SimpleCuffProtection.WarnMsg, SimpleCuffProtection.WarnDur);
 			}
