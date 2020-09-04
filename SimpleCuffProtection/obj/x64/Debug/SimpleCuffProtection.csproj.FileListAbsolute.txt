@@ -1,6 +1,3 @@
-C:\Users\jaxdr\Desktop\Master\SimpleCuffProtection\SimpleCuffProtection\bin\Debug\SimpleCuffProtectionV1.0.5.dll.config
-C:\Users\jaxdr\Desktop\Master\SimpleCuffProtection\SimpleCuffProtection\bin\Debug\SimpleCuffProtectionV1.0.5.dll
-C:\Users\jaxdr\Desktop\Master\SimpleCuffProtection\SimpleCuffProtection\bin\Debug\SimpleCuffProtectionV1.0.5.pdb
 C:\Users\jaxdr\Desktop\Master\SimpleCuffProtection\SimpleCuffProtection\bin\Debug\Assembly-CSharp-firstpass.dll
 C:\Users\jaxdr\Desktop\Master\SimpleCuffProtection\SimpleCuffProtection\bin\Debug\Assembly-CSharp.dll
 C:\Users\jaxdr\Desktop\Master\SimpleCuffProtection\SimpleCuffProtection\bin\Debug\Exiled.API.dll
@@ -16,5 +13,8 @@ C:\Users\jaxdr\Desktop\Master\SimpleCuffProtection\SimpleCuffProtection\bin\Debu
 C:\Users\jaxdr\Desktop\Master\SimpleCuffProtection\SimpleCuffProtection\obj\x64\Debug\SimpleCuffProtection.csprojAssemblyReference.cache
 C:\Users\jaxdr\Desktop\Master\SimpleCuffProtection\SimpleCuffProtection\obj\x64\Debug\SimpleCuffProtection.csproj.CoreCompileInputs.cache
 C:\Users\jaxdr\Desktop\Master\SimpleCuffProtection\SimpleCuffProtection\obj\x64\Debug\SimpleCuffProtection.csproj.CopyComplete
-C:\Users\jaxdr\Desktop\Master\SimpleCuffProtection\SimpleCuffProtection\obj\x64\Debug\SimpleCuffProtectionV1.0.5.dll
-C:\Users\jaxdr\Desktop\Master\SimpleCuffProtection\SimpleCuffProtection\obj\x64\Debug\SimpleCuffProtectionV1.0.5.pdb
+C:\Users\jaxdr\Desktop\Master\SimpleCuffProtection\SimpleCuffProtection\bin\Debug\SimpleCuffProtectionV1.0.7.dll.config
+C:\Users\jaxdr\Desktop\Master\SimpleCuffProtection\SimpleCuffProtection\bin\Debug\SimpleCuffProtectionV1.0.7.dll
+C:\Users\jaxdr\Desktop\Master\SimpleCuffProtection\SimpleCuffProtection\bin\Debug\SimpleCuffProtectionV1.0.7.pdb
+C:\Users\jaxdr\Desktop\Master\SimpleCuffProtection\SimpleCuffProtection\obj\x64\Debug\SimpleCuffProtectionV1.0.7.dll
+C:\Users\jaxdr\Desktop\Master\SimpleCuffProtection\SimpleCuffProtection\obj\x64\Debug\SimpleCuffProtectionV1.0.7.pdb

@@ -10,7 +10,6 @@ using Exiled.Events.EventArgs;
 
 namespace SimpleCuffProtection
 {
-	// Token: 0x02000003 RID: 3
 	internal class EventHandlers
 	{
 		private Dictionary<Player, Player> Handcuffs = new Dictionary<Player, Player>();
