@@ -13,7 +13,9 @@ namespace SimpleCuffProtection
         public string WarningMessage { get; set; } = "<color=red>You are shooting a handcuffed player!</color>";
         [Description("The amount of seconds the message will be shown.")]
         public float WarningMessageDuration { get; set; } = 3f;
+		[Description("Allow the cuffer to deal damage to the cuffed player ? (to ensure compliance)")]
+		public bool AllowCufferDamage { get; set; } = false;
         [Description("Disallow uncuffing a player except by the person who originally cuffed them ?")]
-        public bool DisableUncuffing { get; set; } = false;
+        public bool DisallowUncuffing { get; set; } = false;
     }
  }
