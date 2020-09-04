@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Diagnostics.Tracing;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,47 +13,40 @@ namespace SimpleCuffProtection
 	// Token: 0x02000003 RID: 3
 	internal class EventHandlers
 	{
-		private bool sndMessage = false;
-		// Token: 0x06000006 RID: 6 RVA: 0x00002A1C File Offset: 0x00000C1C
+		private Dictionary<Player, Player> Handcuffs = new Dictionary<Player, Player>();
+
 		public void OnPlayerHurt(HurtingEventArgs ev)
 		{
-
-
-
-			bool flag = ev.Target.IsCuffed;
-			Team attacteam = ev.Attacker.Team;
-			Team targteam = ev.Target.Team;
-
-			if (flag)
+			if (ev.Target.IsCuffed && ev.DamageType.isWeapon && !(SimpleCuffProtection.AllowCufferDamage && Handcuffs.ContainsKey(ev.Attacker) && Handcuffs[ev.Attacker] == ev.Target))
 			{
-				if (attacteam == Team.MTF || attacteam == Team.CHI || attacteam == Team.RSC || attacteam == Team.CDP)
-				{
-					//if (ev.DamageType == DamageTypes.Com15 || ev.DamageType == DamageTypes.E11StandardRifle || ev.DamageType == DamageTypes.Grenade || ev.DamageType == DamageTypes.Logicer || ev.DamageType == DamageTypes.MicroHid || ev.DamageType == DamageTypes.Mp7 || ev.DamageType == DamageTypes.P90 || ev.DamageType == DamageTypes.Usp) {
-					
-					if (ev.DamageType.isWeapon && !ev.DamageType.isScp)
-					{
-						if (!sndMessage)
-						{
-
-
-							ev.Attacker.ShowHint(SimpleCuffProtection.WarnMsg,SimpleCuffProtection.WarnDur);
-							sndMessage = true;
-
-						}
-						Timing.CallDelayed(3f, () =>
-						{
-							sndMessage = false;
-						});
-
-						ev.Amount = 0;
-					}
-				}
-			
+				ev.Amount = 0;
+				ev.Attacker.ShowHint(SimpleCuffProtection.WarnMsg, SimpleCuffProtection.WarnDur);
 			}
-				
-			
 		}
-	
+		
+		public void OnHandcuffing(HandcuffingEventArgs ev)
+		{
+			if (SimpleCuffProtection.DisallowUncuffing && Handcuffs.ContainsKey(ev.Cuffer)) Handcuffs[ev.Cuffer] = ev.Target;
+			else if (SimpleCuffProtection.DisallowUncuffing) Handcuffs.Add(ev.Cuffer, ev.Target);
+		}
+
+		public void OnRemovingHandcuffs(RemovingHandcuffsEventArgs ev)
+		{
+			if (SimpleCuffProtection.DisallowUncuffing) ev.IsAllowed = false;
+		}
+
+		public void OnChangingItem(ChangingItemEventArgs ev)
+		{
+			if (SimpleCuffProtection.DisallowUncuffing && ev.NewItem.id == ItemType.Disarmer && Handcuffs.ContainsKey(ev.Player))
+				ev.Player.Broadcast(5, "<b>If you'd like to uncuff the player you have cuffed earlier, drop the <color=#8A2BE2>Disarmer</color> by right-clicking on it in the inventory wheel.</b>");
+		}
+
+		public void OnDroppingItem(DroppingItemEventArgs ev)
+		{
+			if (SimpleCuffProtection.DisallowUncuffing && ev.Item.id == ItemType.Disarmer && Handcuffs.ContainsKey(ev.Player))
+				ev.Player.ClearBroadcasts();
+				ev.Player.Broadcast(5, "<b>The player you have cuffed earlier has been uncuffed, feel free to pick up the <color=#8A2BE2>Disarmer</color> again.</b>");
+				Handcuffs.Remove(ev.Player);
+		}
 	}
-	
 }
