@@ -4,17 +4,19 @@ using Exiled.API;
 using Exiled.API.Features;
 using Exiled.Events;
 using Exiled.API.Enums;
+using System.Collections.Generic;
 
 namespace SimpleCuffProtection
 {
 	public class SimpleCuffProtection : Plugin<Config>
 	{
 		internal static SimpleCuffProtection plugin { get; private set; }
-        public override Version Version => Version.Parse("1.0.7");
+        public override Version Version => Version.Parse("1.0.8");
 		internal static string WarnMsg;
 		internal static float WarnDur;
 		internal static bool AllowCufferDamage;
 		internal static bool DisallowUncuffing;
+		internal static List<int> BlackListTeams;
 
 		public override string Name
 		{
@@ -59,6 +61,7 @@ namespace SimpleCuffProtection
 			WarnDur = Config.WarningMessageDuration;
 			AllowCufferDamage = Config.AllowCufferDamage;
 			DisallowUncuffing = Config.DisallowUncuffing;
+			BlackListTeams = Config.BlacklistedTeams;
 		}
 
 		private EventHandlers LocalEvents;

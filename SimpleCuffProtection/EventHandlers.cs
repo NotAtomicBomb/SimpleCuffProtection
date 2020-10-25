@@ -16,10 +16,11 @@ namespace SimpleCuffProtection
 
 		public void OnPlayerHurt(HurtingEventArgs ev)
 		{
-			if (ev.Target.IsCuffed && ev.DamageType.isWeapon && !(SimpleCuffProtection.AllowCufferDamage && Handcuffs.ContainsKey(ev.Attacker) && Handcuffs[ev.Attacker] == ev.Target))
+			if (ev.Target.IsCuffed && !SimpleCuffProtection.BlackListTeams.Contains((int)ev.Target.Team) && ev.DamageType.isWeapon && !(SimpleCuffProtection.AllowCufferDamage && Handcuffs.ContainsKey(ev.Attacker) && Handcuffs[ev.Attacker] == ev.Target))
 			{
 				ev.Amount = 0;
 				ev.Attacker.ShowHint(SimpleCuffProtection.WarnMsg, SimpleCuffProtection.WarnDur);
+				
 			}
 		}
 		
